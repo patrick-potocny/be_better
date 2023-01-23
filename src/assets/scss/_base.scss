@@ -1,0 +1,56 @@
+// Colors 
+$clr-bg: #95E2FB;
+$clr-lp-text: black;
+
+// Body 
+body {
+  background-color: $clr-bg;
+  overflow: hidden;
+}
+
+// Mixins
+@mixin hover {
+  &:hover,
+  &focus {
+    cursor: pointer;
+    @content
+  }
+}
+
+@mixin slide-out-left {
+  &.slide-out {
+    animation: slide-out-left 1s ease-in;
+    animation-fill-mode: forwards;
+  }
+}
+
+@mixin slide-out-right {
+  &.slide-out {
+    animation: slide-out-right 1s ease-in;
+    animation-fill-mode: forwards;
+  }
+}
+
+// Media queries
+@media (max-width: 1175px) {
+  .landing-page__bg-chat-icon {
+    font-size: clamp(0.5rem, -1.5rem + 3.3vw, 1rem);
+  }
+}
+
+@media (max-width: 960px) {
+  .landing-page {
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing-page__bg-chat-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .landing-page {
+    font-size: clamp(0.7em, 0.39rem + 1.60vw, 1em);
+  }
+}

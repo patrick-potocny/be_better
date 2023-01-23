@@ -1,0 +1,147 @@
+.landing-page {
+  font-family: 'Hammersmith One', sans-serif;
+  max-width: 81em;
+  margin-inline: auto;
+  padding-inline: 1em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+
+  &__logo {
+    width: 16em;
+    margin-inline: auto;
+    animation: slide-in-right 1s ease-out;
+
+    @include slide-out-right;
+  }
+
+  &__title {
+    font-size: 3em;
+    max-width: 13em;
+    line-height: 1.2;
+    animation: slide-in-left 1.5s ease-out;
+    
+    @include slide-out-left;
+  }
+
+  &__description {
+    font-size: 1.4em;
+    max-width: 43em;
+    width: 90%;
+    animation: slide-in-left 2s ease-out;
+
+    @include slide-out-left;
+  }
+  
+  &__cta {
+    font-size: 1.25em;
+    color: white;
+    width: 9.5em;
+    height: 3em;
+    margin-inline: auto;
+    background-color: $clr-lp-text;
+    border-radius: 0.8em;
+    transition: 0.4s;
+    animation: slide-in-right 2.5s cubic-bezier(.83,.27,.27,.86);
+
+    @include slide-out-right;
+
+    @include hover {
+      scale: 1.1;
+      box-shadow: inset 9.5em 0 0 0 lighten($clr-lp-text, 30%);
+    }
+  }
+
+  &__bg-logo {
+    height: 90vh;
+    position: absolute;
+    right: 0;
+    top: 5%;
+    z-index: -1;
+    animation: reveal 2s ease-in-out;
+    
+    @include slide-out-right;
+
+    .big-gear {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: counter-rotation 10s infinite linear;
+    }
+
+    .small-gear {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: rotation 10s infinite linear;
+    }
+  }
+
+  &__bg-chat-icon {
+    width: 29em;
+    position: absolute;
+    bottom: -25em;
+    z-index: -1;
+    animation: reveal 2s ease-in-out;
+
+    @include slide-out-left;
+  }
+}
+
+@keyframes rotation {
+  from {transform: rotate(0deg)}
+  to   {transform: rotate(360deg)}
+}
+
+@keyframes counter-rotation {
+  from {transform: rotate(360deg)}
+  to   {transform: rotate(0deg)}
+}
+
+@keyframes reveal {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
