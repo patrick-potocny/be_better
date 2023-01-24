@@ -1,0 +1,138 @@
+.chat {
+  font-family: 'Roboto', sans-serif;
+  color: $clr-chat-text;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 900px;
+  width: 100vw;
+  height: 100%;
+  padding: 1em 1.5em;
+  overflow: hidden;
+
+  animation: scale-in-center 2s cubic-bezier(0.33,0,0.33,1);
+  background-color: $clr-chat-bg;
+  box-shadow: 0px 4px 40px 5px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+
+    &__icon {
+      width: 2.5em;
+    }
+
+    &__top-text {
+      font-weight: 700;
+    }
+
+    &__bottom-text {
+      font-size: 0.8em;
+      color: $clr-chat-sec;
+    }
+  }
+
+  &__conversation {
+    margin-block: 1em;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 3em;
+
+    .bot-message{
+      animation: slide-in-left 0.5s ease-out;
+      display: flex;
+      gap: 1em;
+
+      &__chat-head {
+        margin-top: auto;
+        height: 1.5em;
+      }
+
+      &__typing {
+        font-size: 1.25em;
+        color: $clr-chat-sec;
+      }
+
+      &__text {
+        @include message;
+        background-color: $clr-chat-bot-msg-bg;
+      }
+    }
+
+    .user-message {
+      @include message;
+      animation: slide-in-right 0.5s ease-out;
+      align-self: flex-end;
+      background-color: $clr-chat-user-msg-bg;
+    }
+  }
+
+  &__inputs {
+    border: 1px solid $clr-chat-sec;
+    border-radius: 2em;
+    padding: 0.6em;
+    display: flex;
+
+    &__text-input {
+      color: $clr-chat-text;
+      width: 100%;
+      margin-inline: 1em;
+      background-color: transparent;
+      border: none;
+      outline: none;
+
+      &::placeholder {
+        color: $clr-chat-sec;
+        opacity: 1;
+     }
+    }
+
+    &__rec, &__send {
+      width: 2em;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: -0.5em;
+        left: -0.5em;
+        width: calc(100% + 1em);
+        height: calc(100% + 1em);
+        border-radius: 50%;
+        transition: all 0.5s ease;
+      }
+
+      @include hover {
+        &:after {
+          background-color: $clr-chat-sec;
+        }
+      }
+    }
+  }
+
+  &__recording {
+    transition: 0.5s ease;
+    filter: brightness(0.9);
+    @include hover {
+      filter: brightness(1.3);
+    }
+
+    position: absolute;
+    bottom: 10em;
+    left: 50%;
+    transform: translate(-50%);
+  
+    border-radius: 50%;
+    box-shadow: 0 0 0 4em transparent;
+    animation: pulse-red 2s infinite;
+  }
+}

@@ -1,6 +1,11 @@
 // Colors 
 $clr-bg: #95E2FB;
 $clr-lp-text: black;
+$clr-chat-bg: #4F7C87;
+$clr-chat-text: white;
+$clr-chat-sec: rgba(255, 255, 255, 0.4);
+$clr-chat-bot-msg-bg: rgba(white, 0.2);
+$clr-chat-user-msg-bg: rgba(black, 0.2);
 
 // Body 
 body {
@@ -10,11 +15,16 @@ body {
 
 // Mixins
 @mixin hover {
-  &:hover,
-  &focus {
+  &:hover{
     cursor: pointer;
     @content
   }
+}
+
+@mixin message {
+  max-width: 80%;
+  padding: 0.5em 1em;
+  border-radius: 1em;
 }
 
 @mixin slide-out-left {
@@ -53,4 +63,79 @@ body {
   .landing-page {
     font-size: clamp(0.7em, 0.39rem + 1.60vw, 1em);
   }
+}
+
+// Animations
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotation {
+  from {transform: rotate(0deg)}
+  to   {transform: rotate(360deg)}
+}
+
+@keyframes counter-rotation {
+  from {transform: rotate(360deg)}
+  to   {transform: rotate(0deg)}
+}
+
+@keyframes reveal {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+ 
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0) translateX(-200%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateX(-50%);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 red; }
 }
