@@ -16,7 +16,9 @@ function App() {
   return (
     <div className="app">
       {showLp ? <LandingPage openChat={openChat}></LandingPage> : ''}
-      {chatOpen ? <Chat></Chat> : ''}
+      {chatOpen ? <div className="chat">
+        <Chat></Chat> 
+      </div>: ''}
     </div>
   );
 }

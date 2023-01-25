@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from 'prop-types'
+import chatHead from '../assets/images/chat-head-icon.png'
 
-function Typing({ className }) {
+function Typing() {
   const [dots, setDots] = useState("");
 
   useEffect(() => {
@@ -11,11 +11,12 @@ function Typing({ className }) {
     return () => clearInterval(intervalId);
   }, [dots]);
 
-  return <p className={className}>Typing{dots}</p>;
+  return <div className="bot-message">
+  <img className="bot-message__chat-head" src={chatHead} alt="Logo" />
+  <p className="bot-message__typing">
+    Typing{dots}
+  </p>
+</div>;
 }
-
-Typing.propTypes = {
-  className: PropTypes.string.isRequired
-};
 
 export default Typing;

@@ -6,11 +6,24 @@ $clr-chat-text: white;
 $clr-chat-sec: rgba(255, 255, 255, 0.4);
 $clr-chat-bot-msg-bg: rgba(white, 0.2);
 $clr-chat-user-msg-bg: rgba(black, 0.2);
+$clr-scrollbar-bg: rgba(#3F636C, 0.5);
 
 // Body 
 body {
   background-color: $clr-bg;
   overflow: hidden;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  border-radius: 1em;
+  width: 0.5em; /* Width of the scrollbar */
+  background-color: $clr-scrollbar-bg; /* Background color of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $clr-chat-user-msg-bg; /* Color of the thumb */
+  border-radius: 1em; /* Rounded edges of the thumb */
 }
 
 // Mixins
@@ -25,6 +38,7 @@ body {
   max-width: 80%;
   padding: 0.5em 1em;
   border-radius: 1em;
+  white-space: pre-line;
 }
 
 @mixin slide-out-left {
@@ -134,8 +148,4 @@ body {
     transform: scale(1) translateX(-50%);
     opacity: 1;
   }
-}
-
-@keyframes pulse-red {
-  0% { box-shadow: 0 0 0 0 red; }
 }

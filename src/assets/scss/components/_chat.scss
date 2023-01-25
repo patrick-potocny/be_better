@@ -9,8 +9,7 @@
   max-width: 900px;
   width: 100vw;
   height: 100%;
-  padding: 1em 1.5em;
-  overflow: hidden;
+  padding: 1em;
 
   animation: scale-in-center 2s cubic-bezier(0.33,0,0.33,1);
   background-color: $clr-chat-bg;
@@ -25,10 +24,11 @@
     align-items: center;
 
     &__icon {
-      width: 2.5em;
+      width: 2em;
     }
 
     &__top-text {
+      font-size: 0.9em;
       font-weight: 700;
     }
 
@@ -39,39 +39,48 @@
   }
 
   &__conversation {
-    margin-block: 1em;
+    margin-block: 0.5em;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    gap: 3em;
+    overflow-y: auto;
 
-    .bot-message{
-      animation: slide-in-left 0.5s ease-out;
+    // Added this wrapper to retain scroll functionality, apllying 
+    // justify-content: flex-end to the upper div scroll didnt work
+    &__wrapper {
+      margin-top: auto;
       display: flex;
-      gap: 1em;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 3em;
 
-      &__chat-head {
-        margin-top: auto;
-        height: 1.5em;
-      }
-
-      &__typing {
-        font-size: 1.25em;
-        color: $clr-chat-sec;
-      }
-
-      &__text {
-        @include message;
-        background-color: $clr-chat-bot-msg-bg;
+      .bot-message{
+        display: flex;
+        gap: 1em;
+      
+        &__chat-head {
+          margin-top: auto;
+          height: 1.5em;
+        }
+      
+        &__typing {
+          font-size: 1.25em;
+          color: $clr-chat-sec;
+        }
+      
+        &__text {
+          @include message;
+          background-color: $clr-chat-bot-msg-bg;
+        }
       }
     }
-
+    
+    
     .user-message {
       @include message;
-      animation: slide-in-right 0.5s ease-out;
       align-self: flex-end;
+      margin-right: 0.5em;
       background-color: $clr-chat-user-msg-bg;
     }
   }
@@ -96,7 +105,7 @@
      }
     }
 
-    &__rec, &__send {
+    &__send {
       width: 2em;
       position: relative;
 
@@ -117,22 +126,5 @@
         }
       }
     }
-  }
-
-  &__recording {
-    transition: 0.5s ease;
-    filter: brightness(0.9);
-    @include hover {
-      filter: brightness(1.3);
-    }
-
-    position: absolute;
-    bottom: 10em;
-    left: 50%;
-    transform: translate(-50%);
-  
-    border-radius: 50%;
-    box-shadow: 0 0 0 4em transparent;
-    animation: pulse-red 2s infinite;
   }
 }
