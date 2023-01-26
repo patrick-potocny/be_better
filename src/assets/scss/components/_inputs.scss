@@ -1,0 +1,44 @@
+.inputs {
+  border: 1px solid $clr-chat-sec;
+  border-radius: 2em;
+  padding: 0.6em;
+  display: flex;
+
+  &__text-input {
+    color: $clr-chat-text;
+    width: 100%;
+    margin-inline: 1em;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: $clr-chat-sec;
+      opacity: 1;
+   }
+  }
+
+  &__send {
+    width: 2em;
+    position: relative;
+    transition: all 0.5s ease;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: -0.5em;
+      left: -0.5em;
+      width: calc(100% + 1em);
+      height: calc(100% + 1em);
+      border-radius: 50%;
+      transition: all 0.5s ease;
+      background-color: transparent;
+    }
+
+    @include hover {
+      &:after {
+        background-color: $clr-chat-sec;
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import {v4 as uuid} from 'uuid';
+import React, { useEffect, useRef, useState } from "react";
+import { v4 as uuid } from "uuid";
 import Typing from "./Typing";
+import Inputs from "./Inputs";
 import chatHead from "../assets/images/chat-head-icon.png";
-import sendIcon from "../assets/images/Send.svg";
 import { sleep, getBotResponse } from "../utils";
 
 function Chat() {
@@ -13,12 +13,13 @@ function Chat() {
   });
   const [typing, setTyping] = useState(true);
   const [inputVal, setInputVal] = useState("");
+  const bottomRef = useRef();
 
   useEffect(() => {
     async function showWelcomeMessage() {
       await sleep(3000);
       const welcomeMessage = {
-        text: "Hey I am BetterBot, \nan AI chatbot here to help you improve in any area of your life. Whether you're looking to create a plan and achieve your goals or find your purpose, I am here to guide and support you every step of the way. I look forward to working with you and helping you reach your full potential. \n Ask me anything.",
+        text: "Hey I am BetterBot, \nan AI chatbot here to help you improve in any area of your life. Whether you're looking to create a plan and achieve your goals or find your purpose, I am here to guide and support you every step of the way. I look forward to working with you and helping you reach your full potential. \n Ask me anything, take what you need from the answer and be BETTER!",
         isUser: false,
       };
       setTyping(false);
@@ -28,23 +29,40 @@ function Chat() {
     showWelcomeMessage();
   }, []);
 
+  useEffect(() => {
+    // scroll to bottom every time messages,typing change
+    bottomRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "start",
+    });
+  }, [conversation, typing]);
+
   async function handleSend() {
-    if (!typing) {
+    // check if we`re not waiting for response and then if inputVal is not empty and more than one word.
+    if (
+      !typing &&
+      inputVal.trim() !== "" &&
+      inputVal.trim().split(" ").length > 1
+    ) {
       const userMessage = {
         text: inputVal,
         isUser: true,
       };
-      setConversation(conv => [...conv, userMessage]);
+      setConversation((conv) => [...conv, userMessage]);
       setInputVal("");
       await sleep(1000);
       setTyping(true);
-      const botResponse = await getBotResponse(inputVal, lastMessage)
+      const botResponse = await getBotResponse(inputVal, lastMessage);
       setLastMessage({
         user: userMessage,
-        bot: botResponse
-      })
-      setTyping(false)
-      setConversation(conv => [...conv, {text: botResponse, isUser: false}])
+        bot: botResponse,
+      });
+      setTyping(false);
+      setConversation((conv) => [
+        ...conv,
+        { text: botResponse, isUser: false },
+      ]);
     }
   }
 
@@ -62,7 +80,9 @@ function Chat() {
         <div className="chat__conversation__wrapper">
           {conversation.map((message) =>
             message.isUser ? (
-              <div key={uuid()} className="user-message">{message.text}</div>
+              <div key={uuid()} className="user-message">
+                {message.text}
+              </div>
             ) : (
               <div key={uuid()} className="bot-message">
                 <img
@@ -75,23 +95,15 @@ function Chat() {
             )
           )}
           {typing && <Typing></Typing>}
+          <div ref={bottomRef}></div>
         </div>
       </div>
 
-      <div className="chat__inputs">
-        <input
-          className="chat__inputs__text-input"
-          placeholder="Message..."
-          value={inputVal}
-          onChange={(e) => setInputVal(e.target.value)}
-          onKeyUp={(e) => (e.key === "Enter" ? handleSend() : "")}
-          type="text"
-          maxLength="1000"
-        />
-        <button onClick={handleSend} className="chat__inputs__send">
-          <img src={sendIcon} alt="Send" />
-        </button>
-      </div>
+      <Inputs
+        handleSend={handleSend}
+        inputVal={inputVal}
+        setInputVal={setInputVal}
+      ></Inputs>
     </>
   );
 }

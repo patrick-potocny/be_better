@@ -236,10 +236,15 @@ body {
   animation: slide-out-right 1s ease-in;
   animation-fill-mode: forwards;
 }
-.landing-page__cta:hover {
-  cursor: pointer;
-  scale: 1.1;
-  box-shadow: inset 9.5em 0 0 0 #4d4d4d;
+@media (hover: hover) {
+  .landing-page__cta:hover {
+    cursor: pointer;
+    scale: 1.1;
+    box-shadow: inset 9.5em 0 0 0 #4d4d4d;
+  }
+}
+.landing-page__cta:active {
+  transform: scale(0.7);
 }
 .landing-page__bg-logo {
   height: 90vh;
@@ -285,7 +290,7 @@ body {
   max-width: 900px;
   width: 100vw;
   height: 100%;
-  padding: 1em;
+  padding: 0.5em 0.5em 1em;
   animation: scale-in-center 2s cubic-bezier(0.33, 0, 0.33, 1);
   background-color: #4F7C87;
   box-shadow: 0px 4px 40px 5px rgba(0, 0, 0, 0.25);
@@ -321,9 +326,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 3em;
 }
 .chat__conversation__wrapper .bot-message {
+  margin-top: 3em;
   display: flex;
   gap: 1em;
 }
@@ -343,6 +348,7 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 .chat__conversation .user-message {
+  margin-top: 3em;
   max-width: 80%;
   padding: 0.5em 1em;
   border-radius: 1em;
@@ -351,13 +357,14 @@ body {
   margin-right: 0.5em;
   background-color: rgba(0, 0, 0, 0.2);
 }
-.chat__inputs {
+
+.inputs {
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 2em;
   padding: 0.6em;
   display: flex;
 }
-.chat__inputs__text-input {
+.inputs__text-input {
   color: white;
   width: 100%;
   margin-inline: 1em;
@@ -365,15 +372,16 @@ body {
   border: none;
   outline: none;
 }
-.chat__inputs__text-input::placeholder {
+.inputs__text-input::placeholder {
   color: rgba(255, 255, 255, 0.4);
   opacity: 1;
 }
-.chat__inputs__send {
+.inputs__send {
   width: 2em;
   position: relative;
+  transition: all 0.5s ease;
 }
-.chat__inputs__send:after {
+.inputs__send:after {
   content: "";
   position: absolute;
   top: -0.5em;
@@ -382,10 +390,16 @@ body {
   height: calc(100% + 1em);
   border-radius: 50%;
   transition: all 0.5s ease;
+  background-color: transparent;
 }
-.chat__inputs__send:hover {
-  cursor: pointer;
+@media (hover: hover) {
+  .inputs__send:hover {
+    cursor: pointer;
+  }
+  .inputs__send:hover:after {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
 }
-.chat__inputs__send:hover:after {
-  background-color: rgba(255, 255, 255, 0.4);
+.inputs__send:active {
+  transform: scale(0.7);
 }/*# sourceMappingURL=main.css.map */
