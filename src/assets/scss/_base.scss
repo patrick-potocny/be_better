@@ -85,6 +85,12 @@ body {
   }
 }
 
+@media (min-width: 800px) {
+  .chat {
+    font-size: 1.2em;
+  }
+}
+
 // Animations
 @keyframes slide-in-left {
   from {

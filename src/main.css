@@ -104,6 +104,11 @@ body {
     font-size: clamp(0.7em, 0.39rem + 1.6vw, 1em);
   }
 }
+@media (min-width: 800px) {
+  .chat {
+    font-size: 1.2em;
+  }
+}
 @keyframes slide-in-left {
   from {
     transform: translateX(-100vw);
