@@ -27,7 +27,7 @@ body {
 }
 
 // Mixins
-@mixin hover {
+@mixin button-hover {
   // Apply hover effect only to devices that support it
   @media(hover: hover) {
     &:hover {

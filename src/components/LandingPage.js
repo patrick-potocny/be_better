@@ -1,31 +1,44 @@
 import React, { useState } from "react";
 import chatIcon from "../assets/images/chat-icon.png";
 import headerLogo from "../assets/images/landing-page-logo.png";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 function LandingPage({ openChat }) {
-  const [slideOut, setSlideOut] = useState(false)
+  const [slideOut, setSlideOut] = useState(false);
 
   function startChat() {
     setSlideOut(true);
-    openChat()
+    openChat();
   }
 
   return (
     <div className="landing-page">
-      <img className={`landing-page__logo ${slideOut ? 'slide-out' : ''}`} src={headerLogo} alt="" />
-      <h1 className={`landing-page__title ${slideOut ? 'slide-out' : ''}`}>
+      <img
+        className={`landing-page__header-logo ${slideOut ? "slide-out" : ""}`}
+        src={headerLogo}
+        alt="header-logo"
+      />
+      
+      <h1 className={`landing-page__title ${slideOut ? "slide-out" : ""}`}>
         Helping you find your way to a better <span>YOU</span>
       </h1>
-      <p className={`landing-page__description ${slideOut ? 'slide-out' : ''}`}>
-        Get help anytime with beBetter - the AI-powered chatbot for
-        personal growth. Personalized mentorship to improve
-        in any aspect of your life. Start chatting your way to a
-        better you.
+
+      <p className={`landing-page__description ${slideOut ? "slide-out" : ""}`}>
+        Get help anytime with beBetter - the AI-powered chatbot for personal
+        growth. Personalized mentorship to improve in any aspect of your life.
+        Start chatting your way to a better you.
       </p>
-      <button className={`landing-page__cta ${slideOut ? 'slide-out' : ''}`} onClick={startChat}>Start Chat</button>
+
+      <button
+        className={`landing-page__cta-button ${slideOut ? "slide-out" : ""}`}
+        onClick={startChat}
+      >
+        Start Chat
+      </button>
+
       <svg
-        className={`landing-page__bg-logo ${slideOut ? 'slide-out' : ''}`}
+        className={`landing-page__bg-logo ${slideOut ? "slide-out" : ""}`}
+        data-testid="bg-logo"
         width="805"
         height="955"
         viewBox="0 0 805 955"
@@ -50,13 +63,18 @@ function LandingPage({ openChat }) {
           className="small-gear"
         />
       </svg>
-      <img className={`landing-page__bg-chat-icon ${slideOut ? 'slide-out' : ''}`} src={chatIcon} alt="" />
+
+      <img
+        className={`landing-page__bg-chat-icon ${slideOut ? "slide-out" : ""}`}
+        src={chatIcon}
+        alt="chat-icon"
+      />
     </div>
   );
 }
 
 LandingPage.propTypes = {
-  openChat: PropTypes.func.isRequired
+  openChat: PropTypes.func.isRequired,
 };
 
 export default LandingPage;

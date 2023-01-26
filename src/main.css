@@ -194,12 +194,12 @@ body {
   flex-direction: column;
   gap: 3em;
 }
-.landing-page__logo {
+.landing-page__header-logo {
   width: 16em;
   margin-inline: auto;
   animation: slide-in-right 1s ease-out;
 }
-.landing-page__logo.slide-out {
+.landing-page__header-logo.slide-out {
   animation: slide-out-right 1s ease-in;
   animation-fill-mode: forwards;
 }
@@ -226,7 +226,7 @@ body {
   animation: slide-out-left 1s ease-in;
   animation-fill-mode: forwards;
 }
-.landing-page__cta {
+.landing-page__cta-button {
   font-size: 1.25em;
   color: white;
   width: 9.5em;
@@ -237,18 +237,18 @@ body {
   transition: 0.4s;
   animation: slide-in-right 2.5s cubic-bezier(0.83, 0.27, 0.27, 0.86);
 }
-.landing-page__cta.slide-out {
+.landing-page__cta-button.slide-out {
   animation: slide-out-right 1s ease-in;
   animation-fill-mode: forwards;
 }
 @media (hover: hover) {
-  .landing-page__cta:hover {
+  .landing-page__cta-button:hover {
     cursor: pointer;
     scale: 1.1;
     box-shadow: inset 9.5em 0 0 0 #4d4d4d;
   }
 }
-.landing-page__cta:active {
+.landing-page__cta-button:active {
   transform: scale(0.7);
 }
 .landing-page__bg-logo {
@@ -352,7 +352,7 @@ body {
   white-space: pre-line;
   background-color: rgba(255, 255, 255, 0.2);
 }
-.chat__conversation .user-message {
+.chat__conversation__wrapper .user-message {
   margin-top: 3em;
   max-width: 80%;
   padding: 0.5em 1em;
@@ -381,12 +381,12 @@ body {
   color: rgba(255, 255, 255, 0.4);
   opacity: 1;
 }
-.inputs__send {
+.inputs__send-button {
   width: 2em;
   position: relative;
   transition: all 0.5s ease;
 }
-.inputs__send:after {
+.inputs__send-button:after {
   content: "";
   position: absolute;
   top: -0.5em;
@@ -398,13 +398,13 @@ body {
   background-color: transparent;
 }
 @media (hover: hover) {
-  .inputs__send:hover {
+  .inputs__send-button:hover {
     cursor: pointer;
   }
-  .inputs__send:hover:after {
+  .inputs__send-button:hover:after {
     background-color: rgba(255, 255, 255, 0.4);
   }
 }
-.inputs__send:active {
+.inputs__send-button:active {
   transform: scale(0.7);
 }/*# sourceMappingURL=main.css.map */

@@ -12,7 +12,6 @@ function Chat() {
     bot: "",
   });
   const [typing, setTyping] = useState(true);
-  const [inputVal, setInputVal] = useState("");
   const bottomRef = useRef();
 
   useEffect(() => {
@@ -38,8 +37,9 @@ function Chat() {
     });
   }, [conversation, typing]);
 
-  async function handleSend() {
-    // check if we`re not waiting for response and then if inputVal is not empty and more than one word.
+  async function handleSend(inputRef) {
+    let inputVal = inputRef.current.value
+    // check if we`re not waiting for response and then if inputVal is not empty and is more than one word.
     if (
       !typing &&
       inputVal.trim() !== "" &&
@@ -50,8 +50,8 @@ function Chat() {
         isUser: true,
       };
       setConversation((conv) => [...conv, userMessage]);
-      setInputVal("");
-      await sleep(1000);
+      inputRef.current.value = ''
+      await sleep(500);
       setTyping(true);
       const botResponse = await getBotResponse(inputVal, lastMessage);
       setLastMessage({
@@ -101,8 +101,6 @@ function Chat() {
 
       <Inputs
         handleSend={handleSend}
-        inputVal={inputVal}
-        setInputVal={setInputVal}
       ></Inputs>
     </>
   );

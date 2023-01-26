@@ -8,6 +8,7 @@
   transform: translateX(-50%);
   max-width: 900px;
   width: 100vw;
+  // Height set in % so that on mobile height will not include adress bar
   height: 100%;
   padding: 0.5em 0.5em 1em;
 
@@ -46,7 +47,7 @@
     flex-direction: column;
     overflow-y: auto;
 
-    // Added this wrapper to retain scroll functionality, apllying 
+    // Added this wrapper and margin-top auto to retain scroll functionality, apllying 
     // justify-content: flex-end to the upper div scroll didnt work
     &__wrapper {
       margin-top: auto;
@@ -74,15 +75,14 @@
           background-color: $clr-chat-bot-msg-bg;
         }
       }
-    }
-    
-    
-    .user-message {
-      margin-top: 3em;
-      @include message;
-      align-self: flex-end;
-      margin-right: 0.5em;
-      background-color: $clr-chat-user-msg-bg;
+
+      .user-message {
+        margin-top: 3em;
+        @include message;
+        align-self: flex-end;
+        margin-right: 0.5em;
+        background-color: $clr-chat-user-msg-bg;
+      }
     }
   }
 }

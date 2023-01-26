@@ -18,11 +18,12 @@
    }
   }
 
-  &__send {
+  &__send-button {
     width: 2em;
     position: relative;
     transition: all 0.5s ease;
 
+    // Circle behind the button that is bigger and signalizes hover
     &:after {
       content: "";
       position: absolute;
@@ -35,7 +36,7 @@
       background-color: transparent;
     }
 
-    @include hover {
+    @include button-hover {
       &:after {
         background-color: $clr-chat-sec;
       }

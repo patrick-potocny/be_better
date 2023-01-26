@@ -9,7 +9,7 @@
   flex-direction: column;
   gap: 3em;
 
-  &__logo {
+  &__header-logo {
     width: 16em;
     margin-inline: auto;
     animation: slide-in-right 1s ease-out;
@@ -39,7 +39,7 @@
     @include slide-out-left;
   }
   
-  &__cta {
+  &__cta-button {
     font-size: 1.25em;
     color: white;
     width: 9.5em;
@@ -52,12 +52,13 @@
 
     @include slide-out-right;
 
-    @include hover{
+    @include button-hover{
       scale: 1.1;
       box-shadow: inset 9.5em 0 0 0 lighten($clr-lp-text, 30%);
     }
   }
 
+  // SVGS in the Background
   &__bg-logo {
     height: 90vh;
     position: absolute;
