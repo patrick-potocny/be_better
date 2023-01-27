@@ -1,70 +1,50 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a  href="https://patrick-potocny.github.io/be_better">
+<img  src="https://user-images.githubusercontent.com/67468836/215106830-7e9d2567-7fa8-44a2-a4d1-6d1ef857abed.png"  alt="BeBetter logo"  title="BeBetter"  align="right"  height="60"  />
+</a>
 
-## Available Scripts
+# BeBetter 
 
-In the project directory, you can run:
+<p align="center">Improve yourself with an AI chatbot. Get personalized advice on any goal and <a href="https://patrick-potocny.github.io/be_better">BeBetter</a></p>
 
-### `npm start`
+<p align="center">&#128073 <a href="https://patrick-potocny.github.io/be_better">Live Site </a>&#128072</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of contents 
+1. [About BeBetter](#about-bebetter)
+2. [Technologies used](#technologies-used)
+3. [Design & Development](#design--development)
+---
 
-### `npm test`
+### About BeBetter
+BeBetter is an AI chatbot that allows users to unlock their full potential, whether to improve their health, career, or personal life. Our chatbot can guide every step of the way through full on conversations about any issue that the user presents to it. It is powered by the currently most advanced NLP (Natural Language Processing) model called "text-davinci-003" developed by OpenAI. My main motivation to create this chatbot was seeing tons of my peers and people around me missing purpose and goals in life, and just going along and not having much control. Seeing the rise of AI and its ability to have conversations with people and help them felt like the perfect personal project. This project is also meant to serve as a portfolio piece that demonstrates my proficiency in using React and ability to design and build fully functional, responsive and accessible front-end applications.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Demo](https://user-images.githubusercontent.com/67468836/215121016-7e04ece9-5f92-47c3-9832-84472eaf859b.png)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Technologies used
+ - __HTML/CSS__
+ - __JavaScript__
+ - __SCSS__
+ - __React__
+ - __Webpack__
+ - __ESLint__
+ - __Jest__
+ - __Git__
+ - __Figma__
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+--- 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Design & Development
 
-### `npm run eject`
+To build the BeBetter Web-Application, I began by designing it in [Figma](https://www.figma.com/file/4AURxqf1wol5sgG5LtLk5o/beBetter?node-id=0%3A1&t=lCNATUCWb9HMYqBc-1) and utilizing my UI/UX design skills.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+I did my research and went through [OpenAI](https://openai.com/)'s API documentation to select the best model and its configuration for my chatbot. I chose the text-davinci-003 model because it's the most advanced and handles conversations the best out of all the options available.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+In determining the framework for building the React app, I carefully evaluated my options and ultimately chose [Create-React-App (CRA)](https://create-react-app.dev/) due to its ease of use and simplicity in getting the app up and running, as well as the app's lack of need for server-side rendering. To ensure a structured and maintainable CSS, I adopted the [BEM](https://getbem.com/) naming style and paired it with [SCSS](https://sass-lang.com/). To ensure accessibility for all users, I incorporated the use of [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) attributes in my HTML design, specifically to enhance the experience for individuals utilizing assistive technology such as screen readers.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Throughout the development process, I adhered to best practices such as __TDD__ (Test-Driven Development) and __DRY__ (Don't Repeat Yourself). For testing, I utilized [Jest](https://jestjs.io/) in conjunction with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), and for version control, I employed [Git](https://git-scm.com/).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

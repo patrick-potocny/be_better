@@ -24,7 +24,7 @@ function LandingPage({ openChat }) {
       </h1>
 
       <p className={`landing-page__description ${slideOut ? "slide-out" : ""}`}>
-        Get help anytime with beBetter - the AI-powered chatbot for personal
+        Get help anytime with BeBetter - the AI-powered chatbot for personal
         growth. Personalized mentorship to improve in any aspect of your life.
         Start chatting your way to a better you.
       </p>
