@@ -11,7 +11,7 @@ function Typing() {
     return () => clearInterval(intervalId);
   }, [dots]);
 
-  return <div className="bot-message">
+  return <div className="bot-message" aria-label="Bot is typing">
   <img className="bot-message__chat-head" src={chatHead} alt="Logo" />
   <p className="bot-message__typing">
     Typing{dots}

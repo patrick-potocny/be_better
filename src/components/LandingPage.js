@@ -37,6 +37,7 @@ function LandingPage({ openChat }) {
       </button>
 
       <svg
+        aria-hidden="true"
         className={`landing-page__bg-logo ${slideOut ? "slide-out" : ""}`}
         data-testid="bg-logo"
         width="805"
@@ -67,6 +68,7 @@ function LandingPage({ openChat }) {
       <img
         className={`landing-page__bg-chat-icon ${slideOut ? "slide-out" : ""}`}
         src={chatIcon}
+        aria-hidden="true"
         alt="chat-icon"
       />
     </div>

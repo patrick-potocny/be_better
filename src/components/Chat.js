@@ -38,7 +38,7 @@ function Chat() {
   }, [conversation, typing]);
 
   async function handleSend(inputRef) {
-    let inputVal = inputRef.current.value
+    let inputVal = inputRef.current.value;
     // check if we`re not waiting for response and then if inputVal is not empty and is more than one word.
     if (
       !typing &&
@@ -50,7 +50,7 @@ function Chat() {
         isUser: true,
       };
       setConversation((conv) => [...conv, userMessage]);
-      inputRef.current.value = ''
+      inputRef.current.value = "";
       await sleep(500);
       setTyping(true);
       const botResponse = await getBotResponse(inputVal, lastMessage);
@@ -68,7 +68,7 @@ function Chat() {
 
   return (
     <>
-      <div className="chat__header">
+      <div className="chat__header" aria-hidden="true">
         <img className="chat__header__icon" src={chatHead} alt="Logo" />
         <div>
           <p className="chat__header__top-text">beBetter.chat</p>
@@ -77,14 +77,25 @@ function Chat() {
       </div>
 
       <div className="chat__conversation">
-        <div className="chat__conversation__wrapper">
+        <div
+          className="chat__conversation__wrapper"
+          aria-live="assertive"
+          aria-relevant="additions"
+          aria-atomic="false"
+        >
           {conversation.map((message) =>
             message.isUser ? (
-              <div key={uuid()} className="user-message">
+              <div
+                key={uuid()}
+                className="user-message"
+              >
                 {message.text}
               </div>
             ) : (
-              <div key={uuid()} className="bot-message">
+              <div
+                key={uuid()}
+                className="bot-message"
+              >
                 <img
                   className="bot-message__chat-head"
                   src={chatHead}
@@ -99,9 +110,7 @@ function Chat() {
         </div>
       </div>
 
-      <Inputs
-        handleSend={handleSend}
-      ></Inputs>
+      <Inputs handleSend={handleSend}></Inputs>
     </>
   );
 }
