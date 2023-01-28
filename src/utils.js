@@ -1,25 +1,23 @@
-import { Configuration, OpenAIApi } from 'openai';
-
-// Init OpenAi instance
-const config = new Configuration({
-  apiKey: process.env.REACT_APP_API_KEY,
-});
-const openai = new OpenAIApi(config);
+import axios from "axios";
 
 async function getBotResponse(userMessage, lastMessage) {
   try {
-    const response = await openai.createCompletion({
+    const response = await axios.post('/v1/completions', {
       prompt: lastMessage.user + lastMessage.bot + userMessage,
       temperature: 0.5,
       max_tokens: 3000,
       model: "text-davinci-003",
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
     });
-    
     // Removes any newline characters or other non letters/numbers from the start of the response
     const responseText = response.data.choices[0].text.replace(/^[^a-zA-Z0-9]+/g, '');
     if (responseText.trim() === '') return "Even though I am Artificial Intelligence, I am not intelligent enough to respond to that. \n Try to ask me in another way."
-    return responseText
+    return responseText;
   } catch (e) {
+    console.log(e);
     return 'Something went wrong. Try to ask again.'
   }
 }
