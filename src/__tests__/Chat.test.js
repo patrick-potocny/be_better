@@ -17,6 +17,18 @@ jest.mock("../utils", () => {
   utils.getBotResponse = async () => Promise.resolve("Mocked bot response");
   return utils;
 });
+jest.mock("axios", () => ({
+  post: async () =>
+        Promise.resolve({
+          data: {
+            choices: [
+              {
+                text: "Mocked response text",
+              },
+            ],
+          },
+        })
+}));
 
 describe("Chat component", () => {
   window.HTMLElement.prototype.scrollIntoView = jest.fn();

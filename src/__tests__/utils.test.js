@@ -1,16 +1,8 @@
 import { sleep, getBotResponse } from "../utils";
-import "open";
+import "axios";
 
-jest.mock("openai", () => ({
-  Configuration: jest.fn(() => {
-    return {
-      apiKey: "mockedApiKey",
-    };
-  }),
-
-  OpenAIApi: jest.fn(() => {
-    return {
-      createCompletion: async () =>
+jest.mock("axios", () => ({
+  post: async () =>
         Promise.resolve({
           data: {
             choices: [
@@ -19,9 +11,7 @@ jest.mock("openai", () => ({
               },
             ],
           },
-        }),
-    };
-  }),
+        })
 }));
 
 describe("Utility functions", () => {
