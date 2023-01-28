@@ -47,4 +47,4 @@ In determining the framework for building the React app, I carefully evaluated m
 
 Throughout the development process, I adhered to best practices such as __TDD__ (Test-Driven Development) and __DRY__ (Don't Repeat Yourself). For testing, I utilized [Jest](https://jestjs.io/) in conjunction with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), and for version control, I employed [Git](https://git-scm.com/).
 
-
+![Screenshot from 2023-01-27 11-28-36](https://user-images.githubusercontent.com/67468836/215287189-532276a7-23f5-4f33-8158-73a338ac37f7.png)
