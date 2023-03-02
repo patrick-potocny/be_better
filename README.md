@@ -1,13 +1,13 @@
 
-<a  href="https://patrick-potocny-bebetter.netlify.app/">
+<a  href="https://bebetter.chat/">
 <img  src="https://user-images.githubusercontent.com/67468836/215106830-7e9d2567-7fa8-44a2-a4d1-6d1ef857abed.png"  alt="BeBetter logo"  title="BeBetter"  align="right"  height="60"  />
 </a>
 
 # BeBetter 
 
-<p align="center">Improve yourself with an AI chatbot. Get personalized advice on any goal and <a href="https://patrick-potocny-bebetter.netlify.app/">BeBetter</a></p>
+<p align="center">Improve yourself with an AI chatbot. Get personalized advice on any goal and <a href="https://bebetter.chat/">BeBetter</a></p>
 
-<p align="center">&#128073 <a href="https://patrick-potocny-bebetter.netlify.app/">Live Site </a>&#128072</p>
+<p align="center">&#128073 <a href="https://bebetter.chat/">Live Site </a>&#128072</p>
 
 ---
 
