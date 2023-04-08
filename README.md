@@ -11,14 +11,17 @@
 
 ---
 
-## Table of contents 
-1. [About BeBetter](#about-bebetter)
+1. [Overview](#overview)
 2. [Technologies used](#technologies-used)
-3. [Design & Development](#design--development)
+3. [Goals](#goals)
+4. [Design](#design)
+5. [Development](#development)
+6. [Conclusion](#conclusion)
 ---
 
-### About BeBetter
-BeBetter is an AI chatbot that allows users to unlock their full potential, whether to improve their health, career, or personal life. Our chatbot can guide every step of the way through full on conversations about any issue that the user presents to it. It is powered by the currently most advanced NLP (Natural Language Processing) model called "text-davinci-003" developed by OpenAI. My main motivation to create this chatbot was seeing tons of my peers and people around me missing purpose and goals in life, and just going along and not having much control. Seeing the rise of AI and its ability to have conversations with people and help them felt like the perfect personal project. This project is also meant to serve as a portfolio piece that demonstrates my proficiency in using React and ability to design and build fully functional, responsive and accessible front-end applications.
+## Overview
+
+BeBetter is an AI-powered chatbot that employs the latest advancements in Natural Language Processing (NLP) technology to provide personalized advice and assistance to its users. With its amazing ability to comprehend and respond to users' needs, BeBetter can help users unlock their full potential in all areas of their lives, including health, career, and personal development. By engaging users in full conversations about their unique challenges and goals, BeBetter can guide them through the process of achieving their desired outcomes.
 
 ![Demo](https://user-images.githubusercontent.com/67468836/215121016-7e04ece9-5f92-47c3-9832-84472eaf859b.png)
 
@@ -37,14 +40,88 @@ BeBetter is an AI chatbot that allows users to unlock their full potential, whet
 
 --- 
 
-### Design & Development
+## Goals
 
-To build the BeBetter Web-Application, I began by designing it in [Figma](https://www.figma.com/file/4AURxqf1wol5sgG5LtLk5o/beBetter?node-id=0%3A1&t=lCNATUCWb9HMYqBc-1) and utilizing my UI/UX design [skills](https://www.coursera.org/account/accomplishments/professional-cert/DZUJWASR2WSS?utm_campaign=sharing_cta&utm_content=cert_image&utm_medium=certificate&utm_product=prof&utm_source=link).
+- Providing guidance and support to users through full-on conversations about any issue related to health, career, or personal life
+- Utilizing the most advanced NLP model available, enabling the chatbot to understand and respond to users' needs in a personalized way
+- To reduce barriers to entry and ensure universal access, it is essential to optimize the application for seamless use across all internet-connected devices
 
-I did my research and went through [OpenAI](https://openai.com/)'s API documentation to select the best model and its configuration for my chatbot. I chose the text-davinci-003 model because it's the most advanced and handles conversations the best out of all the options available.
+## Design
 
-In determining the framework for building the React app, I carefully evaluated my options and ultimately chose [Create-React-App (CRA)](https://create-react-app.dev/) due to its ease of use and simplicity in getting the app up and running, as well as the app's lack of need for server-side rendering. To ensure a structured and maintainable CSS, I adopted the [BEM](https://getbem.com/) naming style and paired it with [SCSS](https://sass-lang.com/). To ensure accessibility for all users, I incorporated the use of [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) attributes in my HTML design, specifically to enhance the experience for individuals utilizing assistive technology such as screen readers.
+The design process for BeBetter began with the creation of a brand identity that encompasses a name, logo, color palette, and font. I chose the name BeBetter as it clearly conveys the app's purpose and motivates users to strive for self-improvement.
 
-Throughout the development process, I adhered to best practices such as __TDD__ (Test-Driven Development) and __DRY__ (Don't Repeat Yourself). For testing, I utilized [Jest](https://jestjs.io/) in conjunction with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), and for version control, I employed [Git](https://git-scm.com/).
+The next step in the design process was to create a simple landing page that provides a clear description of the chatbot's purpose and encourages users to start a conversation. This was achieved by including a prominent call-to-action button in the middle of the page.
 
+Lastly, the main feature of the app. The chat was designed with the primary goal of keeping it as simple and easy to use as possible. I drew some inspiration from Instagram's chat, specifically with regards to the font and shape of the chat and its elements.
+
+Every part was designed using Figma.
 ![Screenshot from 2023-01-27 11-28-36](https://user-images.githubusercontent.com/67468836/215287189-532276a7-23f5-4f33-8158-73a338ac37f7.png)
+
+## Development
+
+### Tech stack
+
+This project utilizes several technologies, including React, CRA, SCSS, and [OpenAI's](https://openai.com/) `text-davinci-003` NLP model. Each technology was chosen carefully to ensure the application is highly efficient, user-friendly, and visually appealing.
+
+In determining the tool for building the React app, I carefully evaluated my options and ultimately chose Create-React-App (CRA) due to its ease of use and simplicity in getting the app up and running, as well as the app's lack of need for server-side rendering.
+
+React was selected as the front-end library for this project because of its declarative syntax, which allows me to create reusable components that can be easily rendered and updated on the fly. React also facilitates the creation of highly interactive user interfaces, which was crucial for the success of this project.
+
+For styling the app, I utilized SCSS, a CSS preprocessor that is known for streamlining the process of writing and maintaining CSS code to a higher standard. Since the app was not large enough, I didn't need to use SCSS modules to avoid class name collisions. However, to keep the class names up to a certain standard, the BEM naming convention was employed. At the end, all the SCSS files were compiled into one single CSS file.
+
+After thorough research of various NLP models, we have chosen OpenAI's `text-davinci-003` as the backbone of my chatbot application. This model stands out as one of the most advanced NLP models available today, with the ability to understand and respond to natural language with remarkable accuracy and coherence. Trained on massive amounts of data, the model can generate human-like text and engage in conversational exchanges that offer personalized advice to users and help them achieve their goals. Moreover, the model comes with a well-documented API, and its flexibility allows for customization to meet my specific needs, making it an ideal choice for my chatbot.
+
+### Process
+
+In the development of my web application, I placed a strong emphasis on following best coding practices, such as adhering to SOLID principles, utilizing Git for version control, and implementing unit testing using Jest. By implementing these practices, I ensured that my code was organized, modular, and easy to maintain.
+
+Throughout the development process, I began by creating a high-level architecture of the application and breaking it down into smaller components. I made sure that each component had a clear responsibility, adhering to the Single Responsibility Principle of SOLID, and corresponded with a unit test to test its main functionality. This approach made it easy to modify the codebase as the project progressed.
+
+### Challenges
+
+#### **Animations:**
+
+- Animations can add an extra layer of interactivity and engagement to your React project, making it more visually appealing and user-friendly. They can help communicate changes, guide user attention, and create a more immersive experience.
+- In my project, I required animation for only two components, the landing page, and the chat. Therefore, I did not feel the need to incorporate a whole animation library. Instead, I used CSS animations and classes, adding a class to the component leaving to animate its exit. Additionally, I added a delay to the removal of the landing page from the React DOM to ensure that the animation played smoothly. This approach allowed for efficient implementation of animations without adding unnecessary code or libraries to the project.
+  ```
+   // Delay the removing of LandingPage until animations finish
+  async function openChat(params) {
+    setChatOpen(true)
+    await sleep(2000)
+    setShowLp(false);
+  }
+  ```
+
+#### **Chat height on mobile:**
+
+- Initially, I set the chat height to `100vh`, as I intended it to span the entire viewport height. However, upon testing it on my phone, I discovered that the input field was not visible, and I had to scroll down to access it. Further research revealed that on mobile devices, the viewport height calculation excludes the address bar at the top. As a solution, I changed the height of the chat to 100%, which ensured that the address bar was included in the height calculation, and the input field was visible on all devices.
+
+  ```
+  width: 100vw;
+  // Height set in % so that on mobile height will include the adress bar
+  height: 100%;
+  ```
+
+#### **AI Model customization:**
+
+- Without any customization, the `text-davinci-003` model is a Large Language Model (LLM) that focuses on providing text completions to given prompts. However, it is not particularly optimized for chat or providing personalized advice. OpenAI provides options to customize the model to my specific needs, with parameters such as `temperature`(number between 0 and 2 where higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic), and `context`(in my case previous messages).
+- After thorough research of the documentation, I chose to set the `temperature` to `0.5` to ensure the output would be less random and more focused. At the start of the conversation, I instructed the AI to act as a mentor and provide personalized advice. During the conversation, I provided the AI with a few previous messages so it can better understand the context of the conversation.
+
+  ```
+  const options = {
+     prompt: lastMessage.user + lastMessage.bot + userMessage,
+     temperature: 0.5,
+     max_tokens: 3000,
+     model: "text-davinci-003",
+   }
+  ```
+
+## Conclusion
+
+During the development of BeBetter, I learned various things and practices that will be beneficial for future projects. I gained experience in using tools like Figma for design implementation.
+
+Throughout the development process, I faced various challenges, such as implementing animations without using any library, troubleshooting height calculation issues on mobile devices, and fine-tuning the AI model. These challenges allowed me to improve my problem-solving skills and learn how to effectively troubleshoot and debug issues.
+
+Working with my main tech stack that includes React, SCSS, and OpenAI's API, I gained a better understanding of how to leverage each technology's strengths to create a highly efficient, user-friendly, and visually appealing web application. I gained experience in creating reusable components, managing state with React, and styling the app with SCSS.
+
+All set goals were successfully achieved, resulting in a user-friendly and efficient application that helps users unlock their full potential and achieve their desired outcomes.
